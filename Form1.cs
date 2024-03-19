@@ -509,7 +509,7 @@ namespace simp
             if (isPortOpen)
             {
                 dataToSend = "@VDRTD1?" + "\r\n";
-                receivedCombo(RTC1txt);
+                received(RTD1txt);
             }
             else
             {
@@ -521,7 +521,7 @@ namespace simp
         {
             if (isPortOpen)
             {
-                dataToSend = "@VDRTD1 " + RTC1txt.Text + "\r\n";
+                dataToSend = "@VDRTD1 " + RTD1txt.Text + "\r\n";
                 send();
             }
             else
@@ -535,7 +535,7 @@ namespace simp
             if (isPortOpen)
             {
                 dataToSend = "@VDRTD2?" + "\r\n";
-                receivedCombo(rtc2txt);
+                received(RTD2txt);
             }
             else
             {
@@ -547,7 +547,7 @@ namespace simp
         {
             if (isPortOpen)
             {
-                dataToSend = "@VDRTD2 " + rtc2txt.Text + "\r\n";
+                dataToSend = "@VDRTD2 " + RTD2txt.Text + "\r\n";
                 send();
             }
             else
@@ -894,6 +894,135 @@ namespace simp
             }
         }
 
+        private void CipRecBtn_Click(object sender, EventArgs e)
+        {
+            if (isPortOpen)
+            {
+                dataToSend = "@CIPTGR?" + "\r\n";
+                received(CIPtxt);
+            }
+            else
+            {
+                MessageBox.Show("Open COM PORT first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void CipSendBtn_Click(object sender, EventArgs e)
+        {
+            if (isPortOpen)
+            {
+                dataToSend = "@CIPTGR " + CIPtxt.Text + "\r\n";
+                send();
+            }
+            else
+            {
+                MessageBox.Show("Open COM PORT first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void minTemp1RecBtn_Click(object sender, EventArgs e)
+        {
+            if (isPortOpen)
+            {
+                dataToSend = "@TEMP1MIN?" + "\r\n";
+                received(MinTemp1txt);
+            }
+            else
+            {
+                MessageBox.Show("Open COM PORT first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void minTemp1SendBtn_Click(object sender, EventArgs e)
+        {
+            if (isPortOpen)
+            {
+                dataToSend = "@TEMP1MIN " + MinTemp1txt.Text + "\r\n";
+                send();
+            }
+            else
+            {
+                MessageBox.Show("Open COM PORT first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void minTemp2RecBtn_Click(object sender, EventArgs e)
+        {
+            if (isPortOpen)
+            {
+                dataToSend = "@TEMP2MIN?" + "\r\n";
+                received(MinTemp2txt);
+            }
+            else
+            {
+                MessageBox.Show("Open COM PORT first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void minTemp2sendBtn_Click(object sender, EventArgs e)
+        {
+            if (isPortOpen)
+            {
+                dataToSend = "@TEMP2MIN " + MinTemp2txt.Text + "\r\n";
+                send();
+            }
+            else
+            {
+                MessageBox.Show("Open COM PORT first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ADCv1RecBtn_Click(object sender, EventArgs e)
+        {
+            if (isPortOpen)
+            {
+                dataToSend = "@TEMP1lVAL?" + "\r\n";
+                received(ADCval1txt);
+            }
+            else
+            {
+                MessageBox.Show("Open COM PORT first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ADCv1SendBtn_Click(object sender, EventArgs e)
+        {
+            if (isPortOpen)
+            {
+                dataToSend = "@TEMP1LVAL " + ADCval1txt.Text + "\r\n";
+                send();
+            }
+            else
+            {
+                MessageBox.Show("Open COM PORT first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ADCv2RecBtn_Click(object sender, EventArgs e)
+        {
+            if (isPortOpen)
+            {
+                dataToSend = "@TEMP2LVAL?" + "\r\n";
+                received(ADCval2txt);
+            }
+            else
+            {
+                MessageBox.Show("Open COM PORT first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ADCv2SendBtn_Click(object sender, EventArgs e)
+        {
+            if (isPortOpen)
+            {
+                dataToSend = "@TEMP2LVAL " + ADCval2txt.Text + "\r\n";
+                send();
+            }
+            else
+            {
+                MessageBox.Show("Open COM PORT first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void import_Click(object sender, EventArgs e)
         {
             OpenFileDialog dilg = new OpenFileDialog();
@@ -1080,5 +1209,7 @@ namespace simp
                 }
             }
         }
+
+        
     }
 }
